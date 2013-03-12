@@ -1,0 +1,35 @@
+[
+    { 
+        "Name": "step 1 - custom jar api", 
+        "ActionOnFailure": "CONTINUE", 
+        "HadoopJarStep": 
+        { 
+            "Jar": "s3n://zli-emr-test/test-0.0.1-SNAPSHOT.jar",
+            "MainClass": "com.zhentao.test.CascadingMain", 
+            "Args": 
+            [ 
+                "s3n://zli-emr-test/input/cascading", 
+                "s3n://zli-emr-test/output/cascading",
+            ]
+        }
+    },
+    {
+        "Name": "step 2 - streaming",
+        "ActionOnFailure": "TERMINATE_JOB_FLOW",
+        "HadoopJarStep":
+        {
+            "Jar": "/home/hadoop/contrib/streaming/hadoop-streaming.jar",
+            "Args":
+            [
+                "-input",
+                "s3n://zli-emr-test/output/cascading",
+                "-output",
+                "s3n://zli-emr-test/output/streaming",
+                "-mapper",
+                "s3n://elasticmapreduce/samples/wordcount/wordSplitter.py",
+                "-reducer",
+                "aggregate"
+            ]
+        }
+    }
+] 

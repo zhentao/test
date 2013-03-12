@@ -1,0 +1,79 @@
+{
+  "JobFlows": [
+    {
+      "Instances": {
+        "MasterInstanceId": "i-16ed6c6e",
+        "NormalizedInstanceHours": 1,
+        "SlaveInstanceType": null,
+        "KeepJobFlowAliveWhenNoSteps": false,
+        "InstanceCount": 1,
+        "TerminationProtected": false,
+        "MasterInstanceType": "m1.small",
+        "Placement": {
+          "AvailabilityZone": "us-east-1b"
+        },
+        "HadoopVersion": "0.20.205",
+        "Ec2SubnetId": null,
+        "InstanceGroups": [
+          {
+            "Name": "Master Instance Group",
+            "LaunchGroup": null,
+            "InstanceRequestCount": 1,
+            "BidPrice": null,
+            "ReadyDateTime": 1341965254.0,
+            "InstanceRunningCount": 0,
+            "InstanceRole": "MASTER",
+            "State": "ENDED",
+            "StartDateTime": 1341965144.0,
+            "LastStateChangeReason": "Job flow terminated",
+            "InstanceType": "m1.small",
+            "Market": "ON_DEMAND",
+            "CreationDateTime": 1341964946.0,
+            "EndDateTime": 1341965389.0,
+            "InstanceGroupId": "ig-17SJP7G9TBGJZ"
+          }
+        ],
+        "MasterPublicDnsName": "ec2-107-20-0-180.compute-1.amazonaws.com",
+        "Ec2KeyName": "zli-emr"
+      },
+      "ExecutionStatusDetail": {
+        "ReadyDateTime": 1341965256.0,
+        "State": "COMPLETED",
+        "StartDateTime": 1341965256.0,
+        "LastStateChangeReason": "Steps completed",
+        "CreationDateTime": 1341964946.0,
+        "EndDateTime": 1341965389.0
+      },
+      "Name": "Development Job Flow",
+      "LogUri": "s3n:\/\/zli-emr-test\/log1\/",
+      "JobFlowId": "j-1CKN7TRCR77N",
+      "SupportedProducts": [],
+      "AmiVersion": "latest",
+      "BootstrapActions": [],
+      "Steps": [
+        {
+          "ExecutionStatusDetail": {
+            "State": "COMPLETED",
+            "StartDateTime": 1341965255.0,
+            "LastStateChangeReason": null,
+            "CreationDateTime": 1341964946.0,
+            "EndDateTime": 1341965336.0
+          },
+          "StepConfig": {
+            "Name": "Custom Jar Grep Example 1",
+            "ActionOnFailure": "CONTINUE",
+            "HadoopJarStep": {
+              "Jar": "s3n:\/\/zli-emr-test\/test-0.0.1-SNAPSHOT.jar",
+              "Properties": [],
+              "Args": [
+                "s3n:\/\/zli-emr-test\/input\/cascading",
+                "s3n:\/\/zli-emr-test\/output\/cascading"
+              ],
+              "MainClass": "com.zhentao.test.CascadingMain"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

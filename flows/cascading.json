@@ -1,0 +1,16 @@
+   [ 
+      { 
+         "Name": "Custom Jar Grep Example 1", 
+         "ActionOnFailure": "CONTINUE", 
+         "HadoopJarStep": 
+         {
+            "Jar": "s3n://zli-emr-test/test-0.0.1-SNAPSHOT.jar",
+            "MainClass": "com.zhentao.test.CascadingMain", 
+            "Args": 
+            [ 
+               "s3n://zli-emr-test/input/cascading", 
+               "s3n://zli-emr-test/output/cascading",
+            ] 
+         } 
+      } 
+   ] 

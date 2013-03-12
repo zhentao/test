@@ -1,0 +1,17 @@
+   [ 
+      { 
+         "Name": "Custom Jar Grep Example 1", 
+         "ActionOnFailure": "CONTINUE", 
+         "HadoopJarStep": 
+         { 
+            "Jar": "s3n://zli-emr-test/hadoop-examples-0.20.2-cdh3u4.jar", 
+            "Args": 
+            [ 
+               "grep", 
+               "s3n://zli-emr-test/input/example", 
+               "s3n://zli-emr-test/output/example",
+               "dfs[a-z.]+" 
+            ] 
+         } 
+      } 
+   ] 
